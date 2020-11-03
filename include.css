@@ -1,0 +1,25 @@
+  #include <fcntl.h>                                     
+
+     main()                                                 
+
+     {                                                      
+
+         int i,j;                                           
+
+         char buf1[512],buf2[512];                          
+
+                                                            
+
+         i = open("/etc/passwd",O_RDONLY);                  
+
+         j = dup(i);                                        
+
+         read(i,buf1,sizeof(buf1));                         
+
+         read(j,buf2,sizeof(buf2));                        
+
+         close(i);                                          
+
+         read(j,buf2,sizeof(buf2));                         
+
+     }       
